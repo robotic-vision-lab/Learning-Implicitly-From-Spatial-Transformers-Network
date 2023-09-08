@@ -11,7 +11,6 @@ import time
 import torch
 from torch.utils.tensorboard import SummaryWriter
 from torch.nn import DataParallel as DP
-import wandb
 
 import utils
 import arguments
@@ -175,12 +174,8 @@ def train(config):
             print(f"pretrained model loaded at epoch: {epoch}, \
                   best train loss: {best_loss}")
 
-            wandb.init(project=config.exp_name,
-                       sync_tensorboard=True, resume=True)
         else:
             print('No pretrained model was loaded')
-            wandb.init(project=config.exp_name,
-                       sync_tensorboard=True, resume=False)
 
             # ------------------------------------------ #
             # im2sdf pretrained model loading.
@@ -306,9 +301,6 @@ def train(config):
             utils.print_log(config.log, logline)
 
         epoch += 1
-
-    wandb.finish()
-
 
 if __name__ == "__main__":
     import sys
