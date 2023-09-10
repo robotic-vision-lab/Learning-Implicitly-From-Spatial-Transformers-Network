@@ -78,19 +78,15 @@ def get_args():
                         help='Bounding box res.')
 
     parser.add_argument(
-        '--data_dir', default='/work/06035/sami/maverick2/datasets/shapenet/')
+        '--data_dir', default='./Datasets/shapenet/')
     parser.add_argument(
-        '--mesh_dir', default='/work/06035/sami/maverick2/datasets/shapenet/im3d/isosurface/')
+        '--mesh_dir', default='./Datasets/shapenet/mesh/')
     parser.add_argument(
-        '--h5_dir', default='/work/06035/sami/maverick2/datasets/shapenet/im3d/sampled_points/')
+        '--h5_dir', default='./Datasets/shapenet/sampled_points/')
     parser.add_argument(
-        '--density_dir', default='/work/06035/sami/maverick2/datasets/shapenet/d2im/SDF_density/')
+        '--cam_dir', default='./Datasets/shapenet/images/')
     parser.add_argument(
-        '--cam_dir', default='/work/06035/sami/maverick2/datasets/shapenet/disn/image/')
-    parser.add_argument(
-        '--image_dir', default='/work/06035/sami/maverick2/datasets/shapenet/disn/image/')
-    parser.add_argument(
-        '--normal_dir', default='/work/06035/sami/maverick2/datasets/shapenet/d2im/normal_processed/')
+        '--image_dir', default='./Datasets/shapenet/images/')
     parser.add_argument('--catlist', type=str,
                         default=['03001627', '02691156', '02828884', '02933112', '03211117', '03636649',
                                  '03691459', '04090263', '04256520', '04379243', '04530566', '02958343', '04401088'],
@@ -99,7 +95,7 @@ def get_args():
 
     # parser.add_argument('--model_dir', default='/work/06035/sami/maverick2/results/d2im/')
     parser.add_argument(
-        '--output_dir', default='/work/06035/sami/maverick2/results/')
+        '--output_dir', default='./results/')
     # parser.add_argument('--log', default='log.txt')
     parser.add_argument('--test_cam_id', type=int,
                         default=2,
@@ -127,7 +123,6 @@ def get_args():
                     [{'cat_id': fn[0], 'shape_id':fn[1], 'cam_id':fn[2]}])
 
     args.testlist = testlist
-    print(args.testlist)
     # args.catlist = ['03001627']
     # args.catlist = ['03001627', '02691156', '02828884', '02933112', '03211117', '03636649', '03691459', '04090263', '04256520', '04379243', '04530566','02958343', '04401088']
 

@@ -116,32 +116,12 @@ if __name__ == "__main__":
     from torch.nn import DataParallel as DP
     import arguments
     config = arguments.get_args()
-    # model = D2IM_Net(config).cuda()
-    # optimizer = torch.optim.Adam(model.parameters(), lr=config.lr, betas=(config.beta1, 0.999), weight_decay=1e-5)
-    # epoch, model, optimizer, best_test_loss = utils.load_checkpoint(config.model_dir+'/best_model.pt.tar',model, optimizer)
-    # config.ex_chkp_path = '/work2/06035/sami/maverick2/results/d2im/im3d_ex_0/checkpoints/'
-    # config.freeze_ex_module = True
 
-    # net = DP(SDFNet(config)).cuda()
-
-    # out = net(torch.rand((8,3,224,224)).cuda(), torch.rand((8,10,3)).cuda(), [], [])
-
-    # print(out[2].shape, out[3].shape)
-    '''
-    model = DP(IM2Grid(config)).cuda()
-    pred = model(torch.rand(4,3,224,224).float().cuda())
-    [pcl, occ] = pred
-    print(len(pcl))
-    for p in pcl:
-        print(p.shape)
-    print(occ.shape)
-    '''
-
-    model = CNet(config)
-    ch = torch.load(
-        '/work2/06035/sami/maverick2/results/CP_4096F_JN01_all/checkpoints/best_model_test.pt.tar')
-    model.load_state_dict(ch['state_dict'])
-    torch.save({'epoch': ch['epoch'], 'state_dict': model.image_encoder.state_dict(
-    )}, 'best_IME_test.pt.tar')
-    torch.save({'epoch': ch['epoch'], 'state_dict': model.point_decoder.state_dict(
-    )}, 'best_PD_test.pt.tar')
+    model = LIST(config)
+    # ch = torch.load(
+    #     './results/coarse_prediciton/checkpoints/best_model_test.pt.tar')
+    # model.load_state_dict(ch['state_dict'])
+    # torch.save({'epoch': ch['epoch'], 'state_dict': model.image_encoder.state_dict(
+    # )}, 'best_IME_test.pt.tar')
+    # torch.save({'epoch': ch['epoch'], 'state_dict': model.point_decoder.state_dict(
+    # )}, 'best_PD_test.pt.tar')
