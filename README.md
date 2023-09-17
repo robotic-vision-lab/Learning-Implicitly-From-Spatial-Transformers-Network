@@ -52,7 +52,7 @@ First, clone and navigate to the project
 
 Next, download and install any necessary libraries. 
 
-### Data Processing
+### Data Preprocessing
 
 We conducted experiments on the following datasets: ShapeNet and Pix3D. To run
 these experiments, please download the ShapeNet dataset
@@ -60,10 +60,10 @@ these experiments, please download the ShapeNet dataset
 ground-truth dataset of
 [isosurfaces](https://drive.google.com/drive/folders/1QGhDW335L7ra31uw5U-0V7hB-viA0JXr)
 processed by the authors of
-[DISN](https://github.com/laughtervv/DISN/tree/master).
-
-Then, create the directory `./Datasets/shapenet/images/` and place the renderings in this
-directory. Similarly, create and move the isosurfaces into `./Datasets/shapenet/DISN/`.
+[DISN](https://github.com/laughtervv/DISN/tree/master). Then, create the
+directory `./Datasets/shapenet/images/` and place the renderings in this
+directory. Similarly, create and move the isosurfaces into
+`./Datasets/shapenet/DISN/`.
 
 The training data can be preprocessed by invoking
 
@@ -105,7 +105,7 @@ Then, LIST can be fully trained via the following command
 
 #### Model Inference
 
-Please run the following command to test LIST
+To test LIST, please run the following command 
 
     $ nohup python3 -u test.py --model network.models.LIST --dataset datasets.Datasets.IM2SDF --exp_name LIST --eval_pred --coarse_point_density 4096 --sample_distribution 0.45 0.44 0.1 --color_jitter --normalize --sdf_scale 10.0 --test_gpu_id 0 > ./results/LIST/output.log &
 
