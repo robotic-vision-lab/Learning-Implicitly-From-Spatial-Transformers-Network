@@ -32,7 +32,7 @@ If you find this project useful, then please consider citing our work.
   title={LIST: Learning Implicitly from Spatial Transformers for Single-View 3D Reconstruction},
   author={Arshad, Mohammad Samiul and Beksi, William J},
   booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
-  pages={},
+  pages={9321--9330},
   year={2023}
 }
 ```
